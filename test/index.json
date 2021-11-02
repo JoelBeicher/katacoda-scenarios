@@ -1,6 +1,6 @@
 {
-  "title": "Test Title",
-  "description": "Test Description",
+  "title": "Importierung und Exportierung von csv- und json-Dateien",
+  "description": "In diesem Katakoda wird erklärt wie man die zwei Benannten Dateiformate in ein Datenbank exportiert und wie man diese wieder exportiert",
   "difficulty": "Beginner",
   "time": "1 minute",
   "details": {
