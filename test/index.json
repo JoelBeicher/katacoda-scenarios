@@ -18,9 +18,9 @@
     }
   },
   "environment": {
-    "uilayout": "editor-terminal"
+    "uilayout": "showide"
   },
   "backend": {
-    "imageid": "python:3.8"
+    "imageid": "ubuntu:2004"
   }
 }
