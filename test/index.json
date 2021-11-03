@@ -18,7 +18,7 @@
     },
     "assets": {
       "client": [
-        {"file": "IMDB-stats.csv", "target": "/root", "chmod": "+rw"}
+        { "file": "*", "target": "~/" }
       ]
     }
   },
