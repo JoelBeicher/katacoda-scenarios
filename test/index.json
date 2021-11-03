@@ -18,7 +18,7 @@
     },
     "assets": {
       "client": [
-        { "file": "*", "target": "~/" }
+        { "file": "IMDB-stats.csv", "target": "~/" }
       ]
     }
   },
