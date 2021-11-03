@@ -17,8 +17,8 @@
       "text": "finish.md"
     },
     "assets": {
-      "host01": [
-        {"file": "test/IMDB-stats.csv", "target": "root", "chmod": "+rw"}
+      "client": [
+        {"file": "IMDB-stats.csv", "target": "/root", "chmod": "+rw"}
       ]
     }
   },
