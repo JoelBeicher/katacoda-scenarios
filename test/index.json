@@ -18,7 +18,7 @@
     },
     "assets": {
       "host01": [
-        {"file": "IMDB-stats.csv", "target": "root", "chmod": "+rw"}
+        {"file": "test/IMDB-stats.csv", "target": "root", "chmod": "+rw"}
       ]
     }
   },
