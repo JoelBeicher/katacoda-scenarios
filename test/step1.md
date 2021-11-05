@@ -1,14 +1,17 @@
-```
+
+```bash
 docker container run 
     -d 
     --name=postgres 
     -p 5432:5432 
     -e POSTGRES_PASSWORD=password
-    postgres:11.4 {{execute T1}}
+    postgres:11.4 
+{{execute}}
 ```
 
-```
-sudo apt-get install postgresql-client {{execute T1}}
+```bash
+sudo apt-get install postgresql-client 
+{{execute}}
 ```
 
 ```
