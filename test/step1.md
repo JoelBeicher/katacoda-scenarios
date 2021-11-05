@@ -1,6 +1,6 @@
 ```bash
 docker container run -d \
-    --name=postgres \ 
+    --name=postgres \
     -p 5432:5432 \
     -e POSTGRES_PASSWORD=password \
     postgres:11.4
