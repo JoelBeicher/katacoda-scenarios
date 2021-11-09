@@ -8,6 +8,10 @@
       {
         "title": "Postgres Initialsierung",
         "text": "step1.md"
+      },
+      {
+        "title": "Importierung von CSV-Daten",
+        "text": "step2.md"
       }
     ],
     "intro": {
