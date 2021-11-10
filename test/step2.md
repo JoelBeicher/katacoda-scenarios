@@ -1,26 +1,28 @@
-### Manuelle Importierung ###
+Text text Text text Text text Text text Text text Text text Text text Text text
+
+## Manuelle Importierung
 ```
-DROP TABLE imdb IF EXISTS;  \
-CREATE TABLE imdb (         \
-    id SERIAL,              \
-    title VARCHAR(255),     \
-    year DATE,              \ 
-    genre VARCHAR(255),     \
-    PRIMARY KEY (id)        \
+DROP TABLE IF EXISTS simple_imdb;
+CREATE TABLE simple_imdb (
+    id SERIAL,       
+    title VARCHAR(255),   
+    year DATE,    
+    genre VARCHAR(255),   
+    PRIMARY KEY (id)   
 );
 ```{{execute}}
 
 Text bla nal nla bla: `\quit`{{execute}}
 
 ```
-psql dbname                             \
-    -h localhost                        \ 
-    -p 5432                             \
-    -U postgres                         \ 
-    -c "                                \
-        COPY imdb(title, year, genre)   \
-        FROM 'IMDB-stats-simple.csv'    \    
-        delimiter ',' csv               \
+psql dbname
+    -h localhost 
+    -p 5432
+    -U postgres 
+    -c "
+        COPY imdb(title, year, genre)
+        FROM 'IMDB-stats-simple.csv'    
+        delimiter ',' csv
     "
 ```{{execute}}
 
