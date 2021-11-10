@@ -1,7 +1,7 @@
 ```bash
-docker container run -d \
-    --name=postgres \
-    -p 5432:5432 \
+docker container run -d         \
+    --name=postgres             \
+    -p 5432:5432                \
     -e POSTGRES_PASSWORD=secret \
     postgres:11.4
 ```{{execute}}
@@ -19,9 +19,9 @@ Da wir Fortfahren wollen, um den Client auf der VM zu installieren beantworten w
 
 Als nächstes wollen wir auf die postgres-Instanz, die unter dem lokalen Port 5432 läuft, zugreifen. Das machen wir durch den folgenden Aufruf:
 ```
-psql \
-    -h localhost \
-    -p 5432 \
+psql                \
+    -h localhost    \
+    -p 5432         \
     -U postgres
 ```{{execute}}
 Mit der Meldung `Password for user postgres:` wird man aufgeforert, dass zuvor festgelgte Passwort einzugeben: `secret`{{execute}}
@@ -35,3 +35,4 @@ Danach müssen wir uns nur noch mit der Datenbank verbinden. Dabei dient uns der
 `\connect dbname`{{execute}}
 
 Im weiteren werden wir uns anschauen wie man csv-Dateinen auf zwei unterschiedliche Arten importieren kann.
+Ein effizenter Keyboard-Shortcut um die Inhalte im Terminal auf den neusten Eintrag zu reduzieren, kann mit  <kbd>Ctrl</kbd>+<kbd>L</kbd> ausgeführt werden. Der Shortcut kann auch über den Command `^L`{{execute ctrl-seq}} umgesetzt werden.
