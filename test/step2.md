@@ -15,7 +15,7 @@ CREATE TABLE simple_imdb (
 
 ```
 \copy simple_imdb(id, title, year, rated, genre) 
-    from 'IMDB-stats-simple.csv' 
+    FROM 'IMDB-stats-simple.csv' 
     csv header;
 ```{{execute}}
 
