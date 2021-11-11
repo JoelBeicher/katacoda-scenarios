@@ -30,11 +30,11 @@ heruntergeladen werden. Damit das Packet ausgeführt werden kann, muss laut Doku
 
 Danach kann durch den folgenden Befehl, auf das gerade heruntergeladene Packet, eine neue Tabelle `imdb` zur Datenbank `dbname` mit den Inhalten aus der Original Datei `IMDB-stats.csv` hinzugefügt werden:
 ```
-./pgfutter 
-    --db dbname 
-    --pw secret 
-    --table imdb 
-    csv IMDB-stats.csv
+./pgfutter              \
+    --db dbname         \
+    --pw secret         \
+    --table imdb        \
+    csv IMDB-stats.csv  \
 ```{{execute}}
 
 Dadurch wird in einem Schritt durch den `header` der CSV-Datei eine Tabelle mit Spalten angelegt und die CSV-Daten importiert.
