@@ -13,12 +13,31 @@ CREATE TABLE simple_imdb (
 );
 ```{{execute}}
 
-Text bla nal nla bla: `\quit`{{execute}}
-
 ```
-
+\copy simple_imdb(id, title, year, rated, genre) 
+    from 'IMDB-stats-simple.csv' 
+    csv header;
 ```{{execute}}
 
+## Automatische Importierung
+
+Text bla nal nla bla: `\quit`{{execute}}
+
+Wenn wir nun versuchen würden die original Datei mit 30 Spalten importieren zu wollen, stellen wir schnell fest, dass wir viele neue Spalten manuelle zu unserer Datenbank Tabelle hinzufügen müssten. Um diesen Schritt zu vereinfachen, gibt es vorgefertigte Packete - unter anderem `pgfutter`.
+Das Packet kann durch den Command:
 ```
 wget -O pgfutter https://github.com/lukasmartinelli/pgfutter/releases/download/v1.2/pgfutter_linux_amd64
 ```{{execute}}
+heruntergeladen werden. Damit das Packet ausgeführt werden kann, muss laut Dokumentation [zitat] die Rechte zum Ausführen vom Benutzer vergeben werden. Die Rechte können durch den Befehl `chmod +x ./pgfutter`{{execute}}, der für "Change mode" steht, verändert werden.
+
+Danach kann durch den folgenden Befehl, auf das gerade heruntergeladene Packet, eine neue Tabelle `imdb` zur Datenbank `dbname` mit den Inhalten aus der Original Datei `IMDB-stats.csv` hinzugefügt werden:
+```
+./pgfutter 
+    --db dbname 
+    --pw secret 
+    --table imdb 
+    csv IMDB-stats.csv
+```{{execute}}
+
+Dadurch wird in einem Schritt durch den `header` der CSV-Datei eine Tabelle mit Spalten angelegt und die CSV-Daten importiert.
+  
