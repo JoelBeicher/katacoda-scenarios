@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS simple_imdb;
 CREATE TABLE simple_imdb (
     id SERIAL,
     title VARCHAR(255),
-    year YEAR,
+    year INT,
     rated VARCHAR(255),
     genre VARCHAR(255),
     PRIMARY KEY (id)
