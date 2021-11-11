@@ -16,15 +16,7 @@ CREATE TABLE simple_imdb (
 Text bla nal nla bla: `\quit`{{execute}}
 
 ```
-psql dbname                             \
-    -h localhost                        \ 
-    -p 5432                             \
-    -U postgres                         \ 
-    -c "                                \
-        COPY imdb(title, year, genre)   \
-        FROM 'IMDB-stats-simple.csv'    \    
-        delimiter ',' csv               \
-    "
+
 ```{{execute}}
 
 ```
