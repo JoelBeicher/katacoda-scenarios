@@ -14,9 +14,7 @@ CREATE TABLE simple_imdb (
 ```{{execute}}
 
 ```
-\copy simple_imdb(id, title, year, rated, genre) 
-    FROM 'IMDB-stats-simple.csv' 
-    csv header;
+\copy simple_imdb(id, title, year, rated, genre) FROM 'IMDB-stats-simple.csv' csv header;
 ```{{execute}}
 
 ## Automatische Importierung
