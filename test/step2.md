@@ -3,7 +3,7 @@ Dieser Teil beschreibt einmal wie man manuell Datenbanktabelle anlegt und sie da
 ## Manuelle Importierung
 
 Der erste Schritt um Daten aus einer CSV-Datei zu importieren, beeinhaltet das Anlegen einer neuen Datenbanktabelle:
-```
+```postgres
 DROP TABLE IF EXISTS simple_imdb;
 CREATE TABLE simple_imdb (
     id SERIAL,
@@ -15,7 +15,7 @@ CREATE TABLE simple_imdb (
 );
 ```{{execute}}
 Hierbei können wir beliebige Typisierungen, Constrains und Regeln verwenden. Im nächste Schritt, kopieren wir die Daten der CSV-Datei ohne den `header` - also die Bezeichung der Spalten - in unsere vorbereitete `simple_imdb` Tabelle:
-```
+```postgres
 \copy simple_imdb(id, title, year, rated, genre) FROM 'IMDB-stats-simple.csv' csv header;
 ```{{execute}}
 Nach erfolgreicher Importierung sollte erscheinen, dass 250 Einträge kopiert wurden: `COPY 250`.
@@ -39,13 +39,13 @@ Wenn wir nun versuchen würden die original Datei mit 38 Spalten importieren zu 
 
 Um eine automatische Importierung durchzuführen, kann man auf vorgefertigte Pakete - unter anderem `pgfutter` zurückgreifen. Da das Paket außerhalb der postgres-Instanz heruntergeladen werden muss, kann man durch den Befehl `\quit`{{execute}} die Instanz verlassen.
 `pgfutter` wird über den folgenden Befehl ausgeführt:
-```
+```bash
 wget -O pgfutter https://github.com/lukasmartinelli/pgfutter/releases/download/v1.2/pgfutter_linux_amd64
 ```{{execute}}
 Damit das Paket ausgeführt werden kann, müssen laut Dokumentation [zitat] die Rechte zum Ausführen vom Benutzer vergeben werden. Die Rechte können durch den Befehl `chmod +x ./pgfutter`{{execute}}, der für "Change mode" steht, verändert werden.
 
 Danach kann durch den nächsten Befehl, auf das gerade heruntergeladene Packet, eine neue Tabelle `imdb` zur Datenbank `dbname` mit den Inhalten aus der Original Datei `IMDB-stats.csv` hinzugefügt werden:
-```
+```bash
 ./pgfutter              \
     --db dbname         \
     --table imdb        \
@@ -56,7 +56,7 @@ Dadurch wird in einem Schritt durch den `header` der CSV-Datei eine Tabelle mit 
 
 Im Gegensatz zur `imdb` Tabelle besitzt die `import.imdb` Tabelle keinen spezifischen Typ oder Constrains. Das zeigt die Aufzählung der Spalten und ihre Typen:
 In die Instanz einwählen `psql -h localhost -p 5432 -U postgres`{{execute}} und den Befehl 
-```
+```postgres
 \connect dbname
 \d import.imdb
 ```{{execute}} verwenden.
