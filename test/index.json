@@ -27,7 +27,8 @@
     "assets": {
       "client": [
         { "file": "IMDB-stats.csv", "target": "~/" },
-        { "file": "IMDB-stats-simple.csv", "target": "~/" }
+        { "file": "IMDB-stats-simple.csv", "target": "~/" },
+        { "file": "IMDB-stats-export.csv", "target": "~/" }
       ]
     }
   },
