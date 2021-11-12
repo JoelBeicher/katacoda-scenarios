@@ -1,8 +1,8 @@
 ```bash
-docker container run -d         \
-    --name=postgres             \
-    -p 5432:5432                \
-    -e POSTGRES_PASSWORD=secret \
+docker container run -d \
+    --name=postgres     \
+    -p 5432:5432        \
+    --no-password       \
     postgres:11.4
 ```{{execute}}
 

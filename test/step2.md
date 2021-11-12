@@ -21,6 +21,7 @@ Hierbei können wir beliebige Typisierungen, Constrains und Regeln verwenden. Im
 Nach erfolgreicher Importierung sollte erscheinen, dass 250 Einträge kopiert wurden: `COPY 250`.
 Lässt man sich nun alle Inhalte der Tabelle, durch den Befehl `SELECT * FROM simple_imdb;`{{execute}} anzeigen, erhält man alle Einträge der Tabelle: 
 
+
 | id  |           title            | year |   rated   |         genre          | 
 | --- | -------------------------- | ---- | --------- | ---------------------- |
 |   1 | The Shawshank Redemption   | 1994 | R         | Crime, Drama           |
@@ -28,6 +29,7 @@ Lässt man sich nun alle Inhalte der Tabelle, durch den Befehl `SELECT * FROM si
 | ... | ...                        | ...  | ...       | ...                    |  
 | 249 | The Straight Story         | 1999 | G         | Biography, Drama       |
 | 250 | Slumdog Millionaire        | 2008 | R         | Drama                  |
+ 
  
 Die Tabellenansicht kann mit dem Befehl `q `{{execute}} geschlossen werden.
  
@@ -46,10 +48,13 @@ Danach kann durch den nächsten Befehl, auf das gerade heruntergeladene Packet, 
 ```
 ./pgfutter              \
     --db dbname         \
-    --pw secret         \
     --table imdb        \
     csv IMDB-stats.csv
 ```{{execute}}
 
-Dadurch wird in einem Schritt durch den `header` der CSV-Datei eine Tabelle mit Spalten angelegt und die restlichen Daten der Datei importiert. Bei erfolgreicher Durchführung sollte `38 columns` und `250 rows imported into import.imdb` erscheinen, was bedeutet, dass 38 Spalten mit 250 Einträge nun in der Tabelle `import.imdb` gespeichert wurden. Im Gegensatz zur `imdb` Tabelle besitzt die `import.imdb` Tabelle keinen spezifischen Typ oder Constrains. Das zeigt die Aufzählung der Spalten und ihre Typen anhand des Befehls: `\d+ import.imdb`{{execute}}. Man erkennt, dass alle Spalten den Typ `text` erhalten haben, der eine variable Anzahl an Zeichen bis zu 2GB zulässt.
+Dadurch wird in einem Schritt durch den `header` der CSV-Datei eine Tabelle mit Spalten angelegt und die restlichen Daten der Datei importiert. Bei erfolgreicher Durchführung sollte `38 columns` und `250 rows imported into import.imdb` erscheinen, was bedeutet, dass 38 Spalten mit 250 Einträge nun in der Tabelle `import.imdb` gespeichert wurden. 
+
+Im Gegensatz zur `imdb` Tabelle besitzt die `import.imdb` Tabelle keinen spezifischen Typ oder Constrains. Das zeigt die Aufzählung der Spalten und ihre Typen:
+In die Instanz einwählen `psql -h localhost -p 5432 -U postgres`{{execute}} und den Befehl `\d+ import.imdb`{{execute}} verwenden.
+Man erkennt, dass alle Spalten den Typ `text` erhalten haben, der eine variable Anzahl an Zeichen bis zu 2GB zulässt.
   
