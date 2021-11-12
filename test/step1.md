@@ -24,9 +24,7 @@ psql                \
     -p 5432         \
     -U postgres
 ```{{execute}}
-Mit der Meldung `Password for user postgres:` wird man aufgeforert, dass zuvor festgelgte Passwort einzugeben: `secret`{{execute}}
-
-Jetzt sind wir bereit um auf unsere aktive postgres-Instanz zu zugreifen.  
+  
 Als nächstes benötigen wir eine Datenbank in welche wir unsere Daten importieren können.
 Das wird über den `CREATE` Identifier durchgeführt:
 `CREATE DATABASE dbname;`{{execute}}
