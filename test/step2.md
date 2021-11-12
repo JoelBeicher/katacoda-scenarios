@@ -19,23 +19,24 @@ Hierbei können wir beliebige Typisierungen, Constrains und Regeln verwenden. Im
 \copy simple_imdb(id, title, year, rated, genre) FROM 'IMDB-stats-simple.csv' csv header;
 ```{{execute}}
 Nach erfolgreicher Importierung sollte erscheinen, dass 250 Einträge kopiert wurden: `COPY 250`.
-Lässt man sich nun alle Inhalte der Tabelle, durch den Befehl `SELECT * FROM simple_imdb;` anzeigen, erhält man alle Einträge der Tabelle: 
+Lässt man sich nun alle Inhalte der Tabelle, durch den Befehl `SELECT * FROM simple_imdb;`{{execute}} anzeigen, erhält man alle Einträge der Tabelle: 
 
- id  |           title            | year |   rated   |         genre       
------+----------------------------+------+-----------+------------------------
-   1 | The Shawshank Redemption   | 1994 | R         | Crime, Drama
-   2 | The Godfather              | 1972 | R         | Crime, Drama
-   3 | The Godfather: Part II     | 1974 | R         | Crime, Drama
-   4 | The Dark Knight            | 2008 | PG-13     | Action, Crime, Drama
-   5 | 12 Angry Men               | 1957 | APPROVED  | Crime, Drama
- ... | ...                        | ...  | ...       | ...
- 245 | Patton                     | 1970 | GP        | Biography, Drama, War
- 246 | The Lost Weekend           | 1945 | NOT RATED | Drama, Film-Noir
- 247 | Short Term 12              | 2013 | R         | Drama
- 248 | His Girl Friday            | 1940 | APPROVED  | Comedy, Drama, Romance
- 249 | The Straight Story         | 1999 | G         | Biography, Drama
- 250 | Slumdog Millionaire        | 2008 | R         | Drama
+| id  |           title            | year |   rated   |         genre          | 
+| --- | -------------------------- | ---- | --------- | ---------------------- |
+|   1 | The Shawshank Redemption   | 1994 | R         | Crime, Drama           |
+|   2 | The Godfather              | 1972 | R         | Crime, Drama           |
+|   3 | The Godfather: Part II     | 1974 | R         | Crime, Drama           |
+|   4 | The Dark Knight            | 2008 | PG-13     | Action, Crime, Drama   |    
+|   5 | 12 Angry Men               | 1957 | APPROVED  | Crime, Drama           |
+| ... | ...                        | ...  | ...       | ...                    |
+| 245 | Patton                     | 1970 | GP        | Biography, Drama, War  |    
+| 246 | The Lost Weekend           | 1945 | NOT RATED | Drama, Film-Noir       |
+| 247 | Short Term 12              | 2013 | R         | Drama                  |
+| 248 | His Girl Friday            | 1940 | APPROVED  | Comedy, Drama, Romance |    
+| 249 | The Straight Story         | 1999 | G         | Biography, Drama       |
+| 250 | Slumdog Millionaire        | 2008 | R         | Drama                  |
  
+ Die Tabellenansicht kann mit dem `q `{{execute}} Befehl geschlossen werden.
  
 Wenn wir nun versuchen würden die original Datei mit 38 Spalten importieren zu wollen, stellen wir schnell fest, dass wir viele neue Spalten manuelle zu unserer Datenbank Tabelle hinzufügen müssten. Deshalb wäre eine verallgemeinerte Importierung mit automatischem Anlegen einer Datenbanktabelle hilfreich.
 
