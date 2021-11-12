@@ -26,7 +26,7 @@ Das Packet kann durch den Command:
 ```
 wget -O pgfutter https://github.com/lukasmartinelli/pgfutter/releases/download/v1.2/pgfutter_linux_amd64
 ```{{execute}}
-heruntergeladen werden. Damit das Packet ausgeführt werden kann, muss laut Dokumentation [zitat] die Rechte zum Ausführen vom Benutzer vergeben werden. Die Rechte können durch den Befehl `chmod +x ./pgfutter`{{execute}}, der für "Change mode" steht, verändert werden.
+heruntergeladen werden. Damit das Packet ausgeführt werden kann, müssen laut Dokumentation [zitat] die Rechte zum Ausführen vom Benutzer vergeben werden. Die Rechte können durch den Befehl `chmod +x ./pgfutter`{{execute}}, der für "Change mode" steht, verändert werden.
 
 Danach kann durch den folgenden Befehl, auf das gerade heruntergeladene Packet, eine neue Tabelle `imdb` zur Datenbank `dbname` mit den Inhalten aus der Original Datei `IMDB-stats.csv` hinzugefügt werden:
 ```
@@ -34,8 +34,8 @@ Danach kann durch den folgenden Befehl, auf das gerade heruntergeladene Packet, 
     --db dbname         \
     --pw secret         \
     --table imdb        \
-    csv IMDB-stats.csv  \
+    csv IMDB-stats.csv
 ```{{execute}}
 
-Dadurch wird in einem Schritt durch den `header` der CSV-Datei eine Tabelle mit Spalten angelegt und die CSV-Daten importiert.
+Dadurch wird in einem Schritt durch den `header` der CSV-Datei eine Tabelle mit Spalten angelegt und die restlichen Daten der Datei importiert. Bei erfolgreicher Durchführung sollte `COPY 250` erscheinen, was bedeutet, dass 250 Einträge nun in der Tabelle `import.imdb` gespeichert wurden. Im Gegensatz zur `imdb` Tabelle besitzt die `import.imdb` Tabelle keinen spezifischen Typ oder Constrains. Das zeigt die Aufzählung der Spalten und ihre Typen anhand des Commands: `\d+ import.imdb`{{execute}}. Man erkennt, dass alle Spalten den Typ `text` erhalten haben, der eine variable Anzahl an Zeichen bis zu 2GB zulässt.
   
