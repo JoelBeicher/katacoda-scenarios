@@ -8,7 +8,7 @@
       {
         "title": "Postgres Initialsierung",
         "text": "step1.md",
-        "background": "init.sh"
+        "foreground": "init.sh"
       },
       {
         "title": "Importierung von CSV-Daten",
