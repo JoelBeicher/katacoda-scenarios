@@ -6,10 +6,10 @@ Um beispielsweise die simple_imdb Datenbanktabelle nach CSV zu exportieren wird 
 \copy simple_imdb TO 'IMDB-stats-export.csv' DELIMITER '|' CSV HEADER;
 ```{{execute}}
 
-In diesem Fall wird eine Pipe als Trennzeichen verwendet. Wie können die nun erstellte Datei betrachten, in dem wir die postgres-Instanz mit `\q`{{execute}} beenden, und die Exportdatei mit `cat IMDB-stats-export.csv`{{execute}} betrachten.
+In diesem Fall wird eine Pipe als Trennzeichen verwendet. Wie können die nun erstellte Datei betrachten, in dem wir die postgres-Instanz mit `\q`{{execute}} beenden, und die Exportdatei mit `cat IMDB-stats-export.csv`{{execute}} anzeigen lassen.
 
 ## JSON
-Da viele Anwendungen davon profitieren, wenn Daten in einem Key-Value Format zu Verfügung stehen, biete postgresql Aggregationsfunktionen wie `json_agg()` an um Datenbanktabellen effizient in das JSON-Format zu exportieren.
+Da viele Anwendungen davon profitieren, wenn Daten in einem Key-Value Format zu Verfügung stehen, bietet postgresql Aggregationsfunktionen wie `json_agg()` an um Datenbanktabellen effizient in das JSON-Format zu exportieren.
 
 ```json
 [
@@ -32,14 +32,14 @@ Da viele Anwendungen davon profitieren, wenn Daten in einem Key-Value Format zu 
 ```
 
 Da wir von vorneherein gewährleisten möchten, dass wir eine valide JSON-Datei erstellen, müssen in der postgres-Instanz `psql dbname -h localhost -p 5432 -U postgres`{{execute}} zwei Flags gesetzt werden. Zum Einen wird die "Tupels Only" Flag aktiviert - `\t on`{{execute}} - um die Spalten Bezeichnungen zu entfernen. Diese werden überflüssig, da sie für jede Reihe als Key-Identifier gespeichert werden.
-Zum Anderen setzen wir das Formatting auf `unaligned` um nicht vailde Abstandsbezeichner zu entfernen: 
+Zum Anderen setzen wir das Formatting auf `unaligned` um nicht-vailde Abstandsbezeichner zu entfernen: 
 `\pset format unaligned`{{execute}}
 
 Nun können wir die Datenbanktabelle durch den Befehl:
-`SELECT json_agg(s) FROM simple_imdb s \g IMDB-stats-export.json;`{{execute}}
-exportieren. Anstelle der kompletten Datenbanktabelle, können an dieser Stelle auch erweiterte `SELECT` Statements Untertabellen exportiert werden. 
+`SELECT json_agg(s) FROM simple_imdb s \g IMDB-stats-export.json`{{execute}}
+exportieren. Anstelle der kompletten Datenbanktabelle, können an dieser Stelle auch durch erweiterte `SELECT` Statements, Untertabellen exportiert werden. 
 
-Die exportierten Daten können nun wieder außerhalb der postgres-Instanz `\q`{{execute}} unter `cat IMDB-stats-export.json` betrachtet werden.
+Die exportierten Daten können nun wieder außerhalb der postgres-Instanz `\q`{{execute}} unter `cat IMDB-stats-export.json`{{execute}} betrachtet werden.
 
 Wie kann man jedoch aus einer JSON-Datei eine Datenbanktabelle erstellen und befüllen?
-Das werden wir im nächsten Step behandelt.
+Das werden wir im nächsten Schritt behandelt.

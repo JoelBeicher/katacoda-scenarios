@@ -35,4 +35,4 @@ Danach müssen wir uns nur noch mit der Datenbank verbinden. Dabei dient uns der
 `\connect dbname`{{execute}}
 
 Im weiteren werden wir uns anschauen wie man csv-Dateinen auf zwei unterschiedliche Arten importieren kann.
-Ein effizenter Keyboard-Shortcut um die Inhalte im Terminal auf den neusten Eintrag zu reduzieren, kann mit  <kbd>Ctrl</kbd>+<kbd>L</kbd> ausgeführt werden. Der Shortcut kann auch über den Command `\! clear`{{execute}} in postgresql und über `clear`{{execute}} in bash-Terminal umgesetzt werden.
+Ein effizenter Keyboard-Shortcut um die Inhalte im Terminal auf den neusten Eintrag zu reduzieren, kann mit  <kbd>Ctrl</kbd>+<kbd>L</kbd> ausgeführt werden. Der Shortcut kann auch über den Command `\! clear`{{execute}} in postgresql und über `clear` in bash-Terminal umgesetzt werden.
