@@ -1,15 +1,17 @@
+Der erste Schritt besteht darin, dass eine postgresql Docker-Container heruntergeladen wird. 
+
 ```bash
 docker container run -d \
     --name=postgres     \
     -p 5432:5432        \
     postgres:11.4
 ```{{execute}}
-
+Wir starten den postgresql-Container mit den Instantiierungsparametern für den Benuzter postgres und laden im Anschluss eine postgresql-Client über:
 ```
 sudo apt-get update
 sudo apt-get install postgresql-client 
 ```{{execute}}
-
+herunter, der es uns ermöglicht eine lokale Verbindung zur Instanz herzustellen.
 Nach dem alle Daten für den postgres-Client geladen wurde, erscheint zur Bestätigung der Installation die Frage: 
 ```
 Do you want to continue? [Y/n]
