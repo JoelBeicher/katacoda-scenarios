@@ -14,8 +14,12 @@
         "text": "step2.md"
       },
       {
-        "title": "Exportierung von CSV-Daten",
+        "title": "Exportierung von Datenbanktabellen",
         "text": "step3.md"
+      },
+      {
+        "title": "Importierung von JSON-Daten",
+        "text": "step4.md"
       }
     ],
     "intro": {
@@ -28,7 +32,8 @@
       "client": [
         { "file": "IMDB-stats.csv", "target": "~/" },
         { "file": "IMDB-stats-simple.csv", "target": "~/" },
-        { "file": "IMDB-stats-export.csv", "target": "~/" }
+        { "file": "IMDB-stats-export.csv", "target": "~/" },
+        { "file": "IMDB-stats-export.json", "target": "~/" }
       ]
     }
   },

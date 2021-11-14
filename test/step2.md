@@ -31,7 +31,7 @@ Lässt man sich nun alle Inhalte der Tabelle, durch den Befehl `SELECT * FROM si
 | 250 | Slumdog Millionaire        | 2008 | R         | Drama                  |
  
  
-Die Tabellenansicht kann mit dem Befehl `q `{{execute}} geschlossen werden.
+Die Tabellenansicht kann mit dem Befehl `q`{{execute}} geschlossen werden.
  
 Wenn wir nun versuchen würden die original Datei mit 38 Spalten importieren zu wollen, stellen wir schnell fest, dass wir viele neue Spalten manuelle zu unserer Datenbank Tabelle hinzufügen müssten. Deshalb wäre eine verallgemeinerte Importierung mit automatischem Anlegen einer Datenbanktabelle hilfreich.
 
@@ -55,10 +55,8 @@ Danach kann durch den nächsten Befehl, auf das gerade heruntergeladene Packet, 
 Dadurch wird in einem Schritt durch den `header` der CSV-Datei eine Tabelle mit Spalten angelegt und die restlichen Daten der Datei importiert. Bei erfolgreicher Durchführung sollte `38 columns` und `250 rows imported into import.imdb` erscheinen, was bedeutet, dass 38 Spalten mit 250 Einträge nun in der Tabelle `import.imdb` gespeichert wurden. 
 
 Im Gegensatz zur `imdb` Tabelle besitzt die `import.imdb` Tabelle keinen spezifischen Typ oder Constrains. Das zeigt die Aufzählung der Spalten und ihre Typen:
-In die Instanz einwählen `psql -h localhost -p 5432 -U postgres`{{execute}} und den Befehl 
-```postgres
-\connect dbname
-\d import.imdb
-```{{execute}} verwenden.
+
+In die Instanz einwählen `psql dbname -h localhost -p 5432 -U postgres`{{execute}} und den Befehl 
+`\d import.imdb`{{execute}} verwenden.
 Man erkennt, dass alle Spalten den Typ `text` erhalten haben, der eine variable Anzahl an Zeichen bis zu 2GB zulässt. Bei Bedarf können die Typen der Spalten noch angepasst werden um die effizients zu erhöhen.
   
