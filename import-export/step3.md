@@ -11,29 +11,9 @@ In diesem Fall wird eine Pipe als Trennzeichen verwendet. Wie können die nun er
 ## JSON
 Da viele Anwendungen davon profitieren, wenn Daten in einem Key-Value Format zu Verfügung stehen, bietet postgresql Aggregationsfunktionen wie `json_agg()` an um Datenbanktabellen effizient in das JSON-Format zu exportieren.
 
-```json
-[
-    {
-        "id":1,
-        "title":"The Shawshank Redemption",
-        "year":1994,
-        "rated":"R",
-        "genre":"Crime, Drama"
-    },
-    ...
-    {
-        "id":250,
-        "title":"Slumdog Millionaire",
-        "year":2008,
-        "rated":"R",
-        "genre":"Drama" 
-    }
-]
-```
-
 Da wir von vorneherein gewährleisten möchten, dass wir eine valide JSON-Datei erstellen, müssen in der postgres-Instanz `psql dbname -h localhost -p 5432 -U postgres`{{execute}} zwei Flags gesetzt werden. Zum Einen wird die "Tupels Only" Flag aktiviert - `\t on`{{execute}} - um die Spalten Bezeichnungen zu entfernen. Diese werden überflüssig, da sie für jede Reihe als Key-Identifier gespeichert werden.
 Zum Anderen setzen wir das Formatting auf `unaligned` um nicht-vailde Abstandsbezeichner zu entfernen: 
-`\pset format unaligned`{{execute}}
+`\pset format unaligned`{{execute}} [8].
 
 Nun können wir die Datenbanktabelle durch den Befehl:
 `SELECT json_agg(s) FROM simple_imdb s \g IMDB-stats-export.json`{{execute}}

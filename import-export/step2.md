@@ -2,7 +2,7 @@ Dieser Teil beschreibt einmal wie man manuell Datenbanktabelle anlegt und sie da
 
 ## Manuelle Importierung
 
-Der erste Schritt um Daten aus einer CSV-Datei zu importieren, beeinhaltet das Anlegen einer neuen Datenbanktabelle:
+Der erste Schritt um Daten aus einer CSV-Datei zu importieren, beinhaltet das Anlegen einer neuen Datenbanktabelle:
 ```postgres
 DROP TABLE IF EXISTS simple_imdb;
 CREATE TABLE simple_imdb (
@@ -14,12 +14,12 @@ CREATE TABLE simple_imdb (
     PRIMARY KEY (id)
 );
 ```{{execute}}
-Hierbei können wir beliebige Typisierungen, Constrains und Regeln verwenden. Im nächste Schritt, kopieren wir die Daten der CSV-Datei ohne den `header` - also die Bezeichung der Spalten - in unsere vorbereitete `simple_imdb` Tabelle:
+Hierbei können wir beliebige Typisierungen, Constrains und Regeln verwenden. Im nächste Schritt, kopieren wir die Daten der CSV-Datei ohne den `header` - also die Bezeichung der Spalten - in unsere vorbereitete `simple_imdb` Tabelle [6]:
 ```postgres
 \copy simple_imdb(id, title, year, rated, genre) FROM 'IMDB-stats-simple.csv' csv header;
 ```{{execute}}
 Nach erfolgreicher Importierung sollte erscheinen, dass 250 Einträge kopiert wurden: `COPY 250`.
-Lässt man sich nun alle Inhalte der Tabelle, durch den Befehl `SELECT * FROM simple_imdb;`{{execute}} anzeigen, erhält man alle Einträge der Tabelle: 
+Lässt man sich nun alle Inhalte der Tabelle wie in Abbildung 5 zu sehen, durch den Befehl `SELECT * FROM simple_imdb;`{{execute}} anzeigen, kann man die Importierung verifizieren: 
 
 
 | id  |           title            | year |   rated   |         genre          | 
@@ -29,7 +29,7 @@ Lässt man sich nun alle Inhalte der Tabelle, durch den Befehl `SELECT * FROM si
 | ... | ...                        | ...  | ...       | ...                    |  
 | 249 | The Straight Story         | 1999 | G         | Biography, Drama       |
 | 250 | Slumdog Millionaire        | 2008 | R         | Drama                  |
- 
+ <i style="font-size: 80%">Abbildung 5: Exemplarische Tabellen Ausgabe im Terminal für alle Einträge der Tabelle `simple_imdb`.</i>
  
 Die Tabellenansicht kann mit dem Befehl `q`{{execute}} geschlossen werden.
  
@@ -42,7 +42,7 @@ Um eine automatische Importierung durchzuführen, kann man auf vorgefertigte Pak
 ```bash
 wget -O pgfutter https://github.com/lukasmartinelli/pgfutter/releases/download/v1.2/pgfutter_linux_amd64
 ```{{execute}}
-Damit das Paket ausgeführt werden kann, müssen laut Dokumentation [zitat] die Rechte zum Ausführen vom Benutzer vergeben werden. Die Rechte können durch den Befehl `chmod +x ./pgfutter`{{execute}}, der für "Change mode" steht, verändert werden.
+Damit das Paket ausgeführt werden kann, müssen laut Dokumentation die Rechte zum Ausführen vom Benutzer vergeben werden. Die Rechte können durch den Befehl `chmod +x ./pgfutter`{{execute}}, der für "Change mode" steht, verändert werden [7].
 
 Danach kann durch den nächsten Befehl, auf das gerade heruntergeladene Packet, eine neue Tabelle `imdb` zur Datenbank `dbname` mit den Inhalten aus der Original Datei `IMDB-stats.csv` hinzugefügt werden:
 ```bash
@@ -57,5 +57,5 @@ Dadurch wird in einem Schritt durch den `header` der CSV-Datei eine Tabelle mit 
 Im Gegensatz zur `imdb` Tabelle besitzt die `import.imdb` Tabelle keinen spezifischen Typ oder Constrains. Das zeigt die Aufzählung der Spalten und ihre Typen.
 Diese Ansicht erhält man, wenn man in der postgres-Instanz `psql dbname -h localhost -p 5432 -U postgres`{{execute}} den Befehl 
 `\d import.imdb`{{execute}} aufruft.
-Man erkennt, dass alle Spalten den Typ `text` erhalten haben, der eine variable Anzahl an Zeichen bis zu 2GB zulässt. Bei Bedarf können die Typen der Spalten noch angepasst werden um die effizients zu erhöhen.
+Man erkennt, dass alle Spalten den Typ `text` erhalten haben, der eine variable Anzahl an Zeichen zulässt [6]. Bei Bedarf können die Typen der Spalten noch angepasst werden um die effizients zu erhöhen.
   

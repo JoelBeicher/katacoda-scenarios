@@ -6,6 +6,10 @@
   "details": {
     "steps": [
       {
+        "title": "Einführung CSV/JSON",
+        "text": "step0.md"
+      },
+      {
         "title": "Postgres Initialsierung",
         "text": "step1.md"
       },

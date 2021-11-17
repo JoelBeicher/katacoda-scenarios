@@ -1,4 +1,4 @@
-Der erste Schritt besteht darin, dass ein postgresql Docker-Container heruntergeladen wird. 
+Der erste Schritt besteht darin, dass ein postgresql Docker-Container heruntergeladen wird [5]. 
 
 ```bash
 docker container run -d \
@@ -19,7 +19,7 @@ Do you want to continue? [Y/n]
 
 Da wir Fortfahren wollen, um den Client auf der VM zu installieren beantworten wir mit: ` Y `{{execute}} was für Yes oder Ja steht.
 
-Als nächstes wollen wir auf die postgres-Instanz, die unter dem lokalen Port 5432 läuft, zugreifen. Das machen wir durch den folgenden Aufruf:
+Als nächstes wollen wir auf die postgres-Instanz, die unter dem lokalen Port 5432 läuft, zugreifen [6]. Das machen wir durch den folgenden Aufruf:
 ```
 psql                \
     -h localhost    \

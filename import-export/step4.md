@@ -1,5 +1,5 @@
 Die Vorgehensweise zur erfolgreichen Importierung kann anhand 3 Schritten beschrieben werden.
-Zunächst wird die valide JSON-Datei, die ein Array `[...]` mit allen Inhalten enthält bearbeitet, um in den darauffolgenden Schritten von der Aggregationsfunktion `json_populate_recode()` von postgresql verwendet werden zu können. Es ist notwendig die eckigen Klammern `[]`, `\t`, `\n` und die Kommas zwischen den Einträgen pro Reihe zu entfernen. Auch werden die veränderten Daten in eine neue Datei geschrieben. In unserem Fall nennen wir die neue Datei `IMDB-stats-export-min.json` und für folgenden Befehl aus:
+Zunächst wird die valide JSON-Datei, die ein Array `[...]` mit allen Inhalten enthält bearbeitet, um in den darauffolgenden Schritten von der Aggregationsfunktion `json_populate_recode()` von postgresql verwendet werden zu können. Es ist notwendig die eckigen Klammern `[]`, `\t`, `\n` und die Kommas zwischen den Einträgen pro Reihe zu entfernen. Auch werden die veränderten Daten in eine neue Datei geschrieben. In unserem Fall nennen wir die neue Datei `IMDB-stats-export-min.json` und für folgenden Befehl aus [9]:
 
 ```
 cat IMDB-stats-export.json | jq -cr '.[]' | sed 's/\\[tn]//g' > IMDB-stats-export-min.json
@@ -26,7 +26,7 @@ CREATE TABLE simple_imdb (
 );
 ```{{execute}}
 
-Hierbei wird die schon beschriebene `json_populate_record()` Funktion verwendet. Sie kann JSON-Konstrukte, wie einzelne Key-Value-Paare zu ihren übereinstimmenden Spalteneinträge in der `simple_imdb` Tabelle hinzufügen.
+Hierbei wird die schon beschriebene `json_populate_record()` Funktion verwendet. Sie kann JSON-Konstrukte, wie einzelne Key-Value-Paare zu ihren übereinstimmenden Spalteneinträge in der `simple_imdb` Tabelle hinzufügen [10].
 
 ```
 INSERT INTO simple_imdb
@@ -44,5 +44,6 @@ Der Aufruf `SELECT * FROM simple_imdb WHERE year = 2000;`{{execute}} sollte folg
 | 43 | Memento             | 2000 | R     | Mystery, Thriller         |
 | 64 | Requiem for a Dream | 2000 | R     | Drama                     |
 | 80 | Snatch              | 2000 | R     | Comedy, Crime             |
+<i style="font-size: 80%">Abbildung 6: Ausgabe des Terminals nach ausgewählter Suche über alle Filme mit dem Erscheinungsdatum 2000. Insgesamt 4 Einträge.</i>
 
 Das zeigt das alle Daten erfolgreich importiert wurden.

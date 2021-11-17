@@ -1,2 +1,4 @@
 In diesem Katakoda wird erklärt wie man die zwei benannten Dateiformate in eine Datenbank importiert und wie man diese wieder exportiert.
-Wir werden Schritt für Schritt betrachten, wie man eine postgresql Datenbanktabelle anlegt und diese mit importierten Daten füllt. Darüber hinaus betrachten wir eine Variante der Importierung, die es uns ermöglicht, ohne Vorbereitung einer Tabelle CSV-Dateien automatisch zu importieren. Auch werden wir jeweils kurz auf die Vor- und Nachteil der verschiedenen Möglichkeiten eingehen. 
+Wir werden Schritt für Schritt betrachten, wie man eine postgresql Datenbanktabelle anlegt und diese mit importierten Daten füllt. Darüber hinaus betrachten wir eine Variante der Importierung, die es uns ermöglicht, ohne Vorbereitung einer Tabelle CSV-Dateien automatisch zu importieren. Auch werden wir jeweils kurz auf die Vor- und Nachteil der verschiedenen Möglichkeiten eingehen.
+
+Zu Beging werden wir kurz auf das CSV- und JSON-Format respektive eingehen um ein besseres Verständnis für ihren Einsatz und ihre Formatierung zu erhalten. 
