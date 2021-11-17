@@ -31,7 +31,8 @@ Darüber hinaus zeigt _Abbildung 1_ auch, dass neue Linien Einträge jeweils die
 
 JSON, zu Deutsch JavaScript Objekt Notation, ist ein Dateiformat, dass basierend auf der JavaScript Programmiersprache Daten strukturiert speichern kann. Dabei verwendet es benannte, ungeordnete Listen, geordnete Listen und Key-Value-Paare. Diese Struktur lässt sich verschachteln, sodass ein Value zum Beispiel eine ungeordnete Liste beeinhaltet. _Abbildung 3_ zeigt wie das JSON-Format unter anderem zum Einsatz kommt [3]. 
 
-<img src="assets/JSON-Buckenhofer.png" width="950" height="536" alt="JSON Informationsbild"/>
+<img src="assets/JSON-Buckenhofer.png" sizes="min-width: 950px,
+536px" alt="JSON Informationsbild"/>
 <i style="font-size: 80%">Abbildung 3: Weitere Information über das JSON Dateiformat [4].</i>
 
 Die Paralleldatei zur _Abbildung 1_ im JSON-Format würde wie in der folgenden _Abbildung 4_ aussehen.
